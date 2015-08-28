@@ -16,8 +16,9 @@ var Form = React.createClass({
     handleSubmit(e){
         e && e.preventDefault();
         var vm = this.props.valueManager;
+        console.log('Validating');
         if (!this.props.novalidate) {
-            console.log('Validating');
+            
             vm.validate();
         }
         if (vm.onSubmit(e, vm.getErrors(), vm.getValue(), this.props.path) !== false) {
