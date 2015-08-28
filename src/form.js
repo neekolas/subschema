@@ -18,10 +18,14 @@ var Form = React.createClass({
         e && e.preventDefault();
         var vm = this.props.valueManager;
         if (!this.props.novalidate) {
+            console.log('Validating');
             vm.validate();
         }
         if (vm.onSubmit(e, vm.getErrors(), vm.getValue(), this.props.path) !== false) {
             this.props.onSubmit(e, vm.getErrors(), vm.getValue());
+        }
+        else {
+            console.log('Validation failed');
         }
     },
     setErrors(errors){
