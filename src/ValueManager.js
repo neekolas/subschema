@@ -1,6 +1,7 @@
 "use strict";
 
 var tu = require('./tutils');
+var canUseDOM = require('react/lib/ExecutionEnvironment').canUseDOM;
 
 function removeListener(listeners) {
     return function ValueManager$removeListener(path, listener) {
@@ -112,6 +113,7 @@ function ValueManager(value, errors) {
     if (!(this instanceof ValueManager)) {
         return new ValueManager(value, errors);
     }
+
     this.listeners = [];
     this.errorListeners = [];
     this.validateListeners = [];
@@ -251,7 +253,7 @@ ValueManager.prototype = {
         var parts = path && path.split('.') || [], i = 0, l = parts.length, pp = null;
         do {
             if (this.listeners.some(v=> {
-                    if (v.path === pp) {
+                    if (v.path === pp && canUseDOM) {
                         return (v.listener.call(v.scope, this.path(pp, this.value), this.path(pp, this.oldValue), path) === false);
                     }
                 }, this) === true) {

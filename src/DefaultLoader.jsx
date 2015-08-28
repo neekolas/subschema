@@ -1,6 +1,6 @@
 module.exports = {
     loadTemplate (template) {
-        return require.context("./templates", true, /^\.\/.*\.js(x)?/)('./' + template + '.jsx');
+        return require("./templates/" + template + ".jsx");
     },
     listTemplates(){
 
@@ -12,7 +12,7 @@ module.exports = {
         });
     },
     loadType (type) {
-        return require.context("./types", true, /^\.\/.*\.js(x)?/)('./' + type + '.jsx');
+        return require("./types/" + type + ".jsx");
     },
     listTypes(){
         return require.context("./types", true, /^\.\/.*\.js(x)?/).keys().map(function (k) {

@@ -1,5 +1,6 @@
 var EventListener = require('react/lib/EventListener');
 var React = require('./react');
+var canUseDOM = require('react/lib/ExecutionEnvironment').canUseDOM;
 module.exports = {
     EventListener,
     ownerDocument,
@@ -11,6 +12,7 @@ module.exports = {
  * listen
  */
 function listen(node, event, func) {
+    if (!canUseDOM) return;
     return EventListener.listen(ownerDocument(node), event, func);
 }
 /**
@@ -20,6 +22,7 @@ function listen(node, event, func) {
  * @returns {HTMLElement}
  */
 function ownerDocument(componentOrElement) {
+    if (!canUseDOM) return;
     var elem = React.findDOMNode(componentOrElement);
     return elem && elem.ownerDocument || document;
 }
@@ -32,6 +35,7 @@ function ownerDocument(componentOrElement) {
  * @returns {boolean}
  */
 function isNodeInRoot(node, root) {
+    if (!canUseDOM) return;
     while (node) {
         if (node === root) {
             return true;

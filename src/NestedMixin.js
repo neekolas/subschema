@@ -3,6 +3,8 @@ var tu = require('./tutils');
 var Editor = require('./Editor');
 var ValueManager = require('./ValueManager');
 var LoaderMixin = require('./LoaderMixin');
+var canUseDOM = require('react/lib/ExecutionEnvironment').canUseDOM;
+
 var NestedMixin = {
     mixins:[LoaderMixin],
     getDefaultProps() {
