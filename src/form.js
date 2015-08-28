@@ -8,8 +8,7 @@ var Form = React.createClass({
         return {
             template: 'FormTemplate',
             onSubmit(){
-            },
-            novalidate: false
+            }
         }
     },
 
