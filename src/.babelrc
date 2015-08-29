@@ -2,7 +2,8 @@
   "optional": [
       "es7.decorators",
       "es7.classProperties",
-      "es7.objectRestSpread"
+      "es7.objectRestSpread",
+      "runtime"
   ],
   stage: 0
 }
