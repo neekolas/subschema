@@ -22,7 +22,6 @@ exports = module.exports = React.createClass({
     render: function() {
         return (
             <div>
-                <input type="text" />
                 <p style={{display: this.state.isEditing ? 'none' : 'block'}} >{this.state.value}</p>
                 {this.props.children}
             </div>

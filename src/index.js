@@ -1,3 +1,4 @@
+console.log('Running');
 module.exports.Form = require('./form');
 module.exports.NestedMixin = require('./NestedMixin');
 module.exports.Editor = require('./Editor');
